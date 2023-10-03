@@ -7,8 +7,6 @@ def validar():
             continue
         return num
             
-
-
 print("\nBienvenido, vamos a crear un plan detallado personalizado para ti\n")
 while True:
     llegada = input("¿A que horas tienes que llegar al trabajo? Ingresa la información en el siguiente formato (Hora:Minutos)\n"
@@ -33,8 +31,22 @@ while(horaLevantarseMin < 0):
     horaLevantarseMin = horaLevantarseMin + 60
     horaLevantarseHor = horaLevantarseHor - 1
 
+horaDesayunarHor = int(horaLlegada[0])
+horaDesayunarMin = int(horaLlegada[1]) - transporte - alistarse
+
+while(horaDesayunarMin < 0):
+    horaDesayunarMin = horaDesayunarMin + 60
+    horaDesayunarHor = horaDesayunarHor - 1
+
+horaAlistarHor = int(horaLlegada[0])
+horaAlistarMin = int(horaLlegada[1]) - transporte
+
+while(horaAlistarMin < 0):
+    horaAlistarMin = horaAlistarMin + 60
+    horaAlistarHor = horaAlistarHor - 1
+
 print("\nPlan detallado\n"
-      f"\nLevantarse: {horaLevantarseHor}:{horaLevantarseMin}"
-      "\nDesayunar: "
-      "\nAlistarte: "
-      "\nSalir de casa al trabajo: ")
+      f"\nLevantarse y desayunar: {horaLevantarseHor}:{horaLevantarseMin}"
+      f"\nAlistarte: {horaDesayunarHor}:{horaDesayunarMin}"
+      f"\nSalir de casa al trabajo: {horaAlistarHor}:{horaAlistarMin}"
+      f"\nLlegar a tu trabajo: {horaLlegada[0]}:{horaLlegada[1]}")
